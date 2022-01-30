@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
-import { Lista } from "../components/Lista";
-
+// import Header from "../components/Header";
+// import { Lista } from "../components/Lista";
+import Slider from "../components/Slider";
 
 const DivPadre = styled.div`
     
@@ -15,9 +15,11 @@ export default class Container extends Component  {
     render() {
         return (
             <DivPadre className="mt-5">
-                <Header/>
-                <Lista className="altura"/>
+                <Slider />
+                {/* <Header/>
+                <Lista className="altura"/> */}
             </DivPadre>
+
             )
     }
 }
