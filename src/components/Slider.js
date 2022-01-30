@@ -3,14 +3,7 @@ import { Carousel, CarouselItem, CarouselControl,
 CarouselIndicators, CarouselCaption} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState } from 'react';
-import styled from 'styled-components';
-import { queryByDisplayValue } from '@testing-library/react';
-
-   
-
-
-
-
+// import styled from 'styled-components';
 
 
   const items = [
