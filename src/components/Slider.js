@@ -10,17 +10,14 @@ import { useState } from 'react';
     {
       src : 'https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/verde_dcimlm.png',
       altText: 'Guajolota de Tamal Verde',
-      
     },
     {
       src: 'https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/Mole_quk0tw.png',
       altText: 'Guajolota de Tamal de Mole',
-      
     },
     {
       src: 'https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700043/guappjolotas/guayaba_buucjt.png',
       altText: 'Guajolota de Tamal de Guayaba',
-      
     }
   ];
 
