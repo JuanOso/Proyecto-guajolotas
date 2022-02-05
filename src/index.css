@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(241, 240, 230);
+  font-family: 'Inter';
 }
 
 code {
@@ -41,10 +42,51 @@ code {
 .inter {
   font-family: 'Inter';
   font-weight: 600;
-  overflow: hidden;
 }
 
 .lupa {
   transform: translate(-35px, 7px);
   font-size: 1.2rem;
 }
+
+.opacidad {
+  opacity: 0.3; 
+}
+
+.topp {
+  margin-top: 40%;
+}
+
+.capitalizar {
+  text-transform: capitalize;
+}
+
+  /*  Estilo personalizado checkbox */
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+
+  width: 20px;
+  height: 20px;
+  background-color: none;
+  border: 2px solid black;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+input[type="checkbox"]:checked:after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f00c";
+  font-size: 18px;
+}
+
+/* .fontInter {
+  font-family: 'Inter';
+} */

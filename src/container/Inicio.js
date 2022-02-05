@@ -4,7 +4,8 @@ import Header from "../components/Header";
 import { Lista } from "../components/Lista";
 
 
-const DivPadre = styled.div`
+
+ export const DivPadre = styled.div`
     
     border: 3px solid black;
     width: 390px;
@@ -14,7 +15,7 @@ const DivPadre = styled.div`
 export default class Container extends Component  {
     render() {
         return (
-            <DivPadre className="mt-5">
+            <DivPadre className="">
                 <Header/>
                 <Lista className="altura"/>
             </DivPadre>

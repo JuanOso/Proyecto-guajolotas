@@ -1,6 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+/* import { Sabores } from "./Sabores"; */
+import { useNavigate } from 'react-router-dom';
+import { Carrito } from "./LogicaCarrito";
+
 /* const url = 'https://guajolotasejercicio.herokuapp.com/bebidas'
  */
 
@@ -12,7 +16,7 @@ const DivMenu = styled.div`
     padding: 0px;
 `
 
-const A = styled.a`
+const A = styled.button`
     text-decoration: none;
     cursor: pointer;
     color: #9A9A9D;
@@ -20,7 +24,9 @@ const A = styled.a`
     font-family: 'Inter';
     line-height: 21px;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    &:hover {
+    border: none;
+    background: none;
+    &:focus {
         color: rgba(250, 74, 12, 1);
         text-decoration: underline;
     }
@@ -39,9 +45,13 @@ const Card = styled.div`
     margin: 7px auto;
 `
 
+
+
 export const Lista =  () => { 
 
-    
+    sessionStorage.clear()
+
+    const navegar = useNavigate();
 
     const [producto, setProducto] = useState([]);
 
@@ -49,21 +59,34 @@ export const Lista =  () => {
         getData();
     }, [])
 
-    const getData = (categoria = 'bebidas') => {
-        /* const tipo = 'tamales' */
+    const getData = (categoria) => {
+        
+
+        if (categoria === undefined || categoria === null) {
+            let categoria1 = sessionStorage.getItem('categoria')
+            if (categoria1 === undefined || categoria1 === null){
+                categoria = 'bebidas'
+            } else {
+                categoria = categoria1
+            }
+            
+        }
         const url = `https://guajolotasejercicio.herokuapp.com/${categoria}`
         axios.get(url)
         .then(response => {
             setProducto(response.data)
-            console.log(response.data);
+            sessionStorage.setItem('categoria', categoria)
         })
         .catch(error => {
             console.log(error)
         })
+   
 
-
-    
-
+    }
+    const llamado = (sabor, objeto)=> {
+        sessionStorage.setItem('sabor', sabor)
+        navegar(`/productos`)
+        Carrito.momentaneoPrincipal(objeto)
     }
     /* console.log(producto) */
     return (
@@ -76,7 +99,7 @@ export const Lista =  () => {
             <div className="mt-4 altura" >
                 {
                 producto.map(p => (
-                    <Card key={p.id}>
+                    <Card key={p.id} onClick={()=> llamado(p.sabor, p)}>
                         <div className="me-4">
                             <img src={p.imagen} width="80px"  alt=""/>
                         </div>
