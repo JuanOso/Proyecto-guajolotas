@@ -1,77 +1,44 @@
-import React from 'react';
-import { Carousel, CarouselItem, CarouselControl,
-CarouselIndicators, CarouselCaption} from 'reactstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
-// import styled from 'styled-components';
+export const Slider = [
 
-
-  const items = [
-    {
-      src : 'https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/verde_dcimlm.png',
-      altText: 'Guajolota de Tamal Verde',
+  {
+      "id": 1,
+      "product": "Guajolota de Tamal Verde",
+      "imagen": "https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/verde_dcimlm.png",
+      "precio": 25,
+      "categoria": "guajolotas",
+      "sabor": "verde"
     },
     {
-      src: 'https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/Mole_quk0tw.png',
-      altText: 'Guajolota de Tamal de Mole',
+      "id": 2,
+      "product": "Guajolota de Tamal de Mole",
+      "imagen": "https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/Mole_quk0tw.png",
+      "precio": 25,
+      "categoria": "guajolotas",
+      "sabor": "mole"
     },
     {
-      src: 'https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700043/guappjolotas/guayaba_buucjt.png',
-      altText: 'Guajolota de Tamal de Guayaba',
+      "id": 3,
+      "product": "Guajolota de Tamal de Guayaba",
+      "imagen": "https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700043/guappjolotas/guayaba_buucjt.png",
+      "precio": 25,
+      "categoria": "guajolotas",
+      "sabor": "guayaba"
+    },
+    {
+      "id": 4,
+      "product": "Guajolota de Tamal de Piña",
+      "imagen": "https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/pina_zsrbx2.png",
+      "precio": 25,
+      "categoria": "guajolotas",
+      "sabor": "piña"
+    },
+    {
+      "id": 5,
+      "product": "Guajolota de Tamal de Pasas",
+      "imagen": "https://res.cloudinary.com/dbyw7mbt6/image/upload/v1642700044/guappjolotas/pasas_qghffh.png",
+      "precio": 25,
+      "categoria": "guajolotas",
+      "sabor": "pasas"
     }
-  ];
 
-const Slider = (props) => {
-  
-    const [activeIndex, setActiveIndex] = useState(0);
-    const [animating, setAnimating] = useState(false);
-
-    const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  }
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
-    setActiveIndex({ activeIndex: nextIndex });
-  }
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  }
-
-  const slides = items.map((item) => {
-      return (
-        
-        <CarouselItem
-          onExiting={() => setAnimating(true)}
-          onExited={() => setAnimating(false)}
-          key={item.src}
-        >
-          <img src={item.src} alt={item.altText} 
-          style={{}}
-          width="30%" height="150px"/>
-          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-        </CarouselItem>
-        
-      );
-    });
-
-    return (
-      <Carousel
-        activeIndex={activeIndex}
-        next={next}
-        previous={previous}
-      >
-        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={goToIndex} />
-        {slides}
-        <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-        <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-      </Carousel>
-    );
-};
-
-export default Slider;
+]

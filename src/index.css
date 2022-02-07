@@ -48,3 +48,43 @@ code {
   transform: translate(-35px, 7px);
   font-size: 1.2rem;
 }
+
+.slider {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  height: 100%;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.right-arrow {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  font-size: 2rem;
+  color: rgb(202, 201, 198);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+.left-arrow {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  font-size: 2rem;
+  color: rgb(202, 201, 198);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
