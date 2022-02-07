@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import logo from '../assets/logo.png'
-import carrito from '../assets/carrito.png'
+import carritoLogo from '../assets/carritoLogo.png'
 /* import vector from '../assets/vector.png' */
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -13,11 +14,13 @@ const ImgLogo = styled.img`
 
 `
 
+
 const ImgCarrito = styled.img`
     width: 24px;
     height: 24px;
     margin-top: 35px;
     margin-right: 25px;
+    cursor: pointer;
     
 `
 const Buscador = styled.input`
@@ -29,13 +32,16 @@ const Buscador = styled.input`
 `
 
 
-export default class Header extends Component {
-    render() {
+
+export const Header = () => {
+
+    const navegar = useNavigate()
+
         return (
             <div>
                 <div className="d-flex justify-content-between">
                     <ImgLogo src={logo} className="ms-4" alt="" />
-                    <ImgCarrito src={carrito} alt="" />
+                    <ImgCarrito src={carritoLogo} alt="" onClick={() => navegar(`/carrito`)}/>
                 </div>
                 <h1 className="ms-4 mt-4 font-inter">Nada como una Guajolota para empezar el día</h1>
                 <div className="d-flex justify-content-center align-items-center">
@@ -48,7 +54,6 @@ export default class Header extends Component {
     }
 
 
-}
 
                 /* <div className="d-flex justify-content-center">
                     <Buscador className="buscador px-4 mt-3" placeholder="sabor de guajolota, bebida, tamales..."></Buscador>
