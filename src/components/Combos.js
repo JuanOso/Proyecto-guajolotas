@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Carrito } from './LogicaCarrito';
 
@@ -49,6 +50,8 @@ export const Combos = () => {
     const [combo, setCombo] = useState([])
     const [valor, setValor] = useState([])
 
+    const navegar = useNavigate()
+
   
     useEffect(() => {
         getCombos();
@@ -75,13 +78,7 @@ export const Combos = () => {
 
  
     const validacionCheck = (p) => {
-        let sacar = document.getElementsByClassName('checks')
-
-        for (let i=0; i < sacar.length; i++) {
-        if (sacar[i].id !== p.id) {
-            sacar[i].checked = false
-            }
-        }
+       
 
         if (p.checked) {
             Carrito.momentaneoSecundario(combo.find( producto => producto.sabor === p.id), 'agrega') 
@@ -130,7 +127,7 @@ export const Combos = () => {
                     }
                 </DivContenedor>
             </form>
-            <Button onClick={()=> Carrito.nuevo_producto()}>Agregar al carrito <span id='valorActual' className='ms-4'>${valor}.00</span></Button>
+            <Button onClick={()=> {Carrito.nuevo_producto(); navegar(`/carrito`)}}>Agregar al carrito <span id='valorActual' className='ms-4'>${valor}.00</span></Button>
         </div>
     );
 };

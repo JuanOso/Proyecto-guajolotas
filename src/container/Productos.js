@@ -17,9 +17,18 @@ const DivHijo = styled.div`
 const ImgCarrito = styled.img`
     width: 24px;
     height: 24px;
-    margin-top: 35px;
-    margin-left: 90%;
     cursor: pointer;
+ `
+
+ const DivH = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-top: 10%;
+  width: 90%;
+  margin-left:5%;
+ 
  `
 
  const Productos = () => {
@@ -29,7 +38,11 @@ const ImgCarrito = styled.img`
 
     return (
         <DivPadre>
-          <ImgCarrito src={carritoLogo} alt="" onClick={() => navegar(`/carrito`)}/>
+          
+          <DivH>
+            <i className="fas fa-chevron-left" style={{ cursor: "pointer" }} onClick={() => navegar(`/`)}></i>
+            <ImgCarrito src={carritoLogo} alt="" onClick={() => navegar(`/carrito`)}/>
+          </DivH>
           <DivHijo>
             <Sabores/>
             <Combos/>
